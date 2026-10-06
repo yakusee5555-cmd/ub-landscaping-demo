@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { FLOAT_CARDS, GLASS_CARDS, LIST_ROWS, STACK_WORDS, WORK_SHOTS } from "../data";
+import { CornerBranch } from "./DecorBits";
 
 /* ---------- Section 2: stacked headline + floating cards (like "Homes. Loans. Agents. Tours.") ---------- */
 export function Stacked() {
@@ -229,7 +230,8 @@ const TIERS = [
 
 export function Pricing() {
   return (
-    <section id="pricing" className="bg-ink py-12 md:py-32">
+    <section id="pricing" className="relative overflow-hidden bg-ink py-12 md:py-32">
+      <CornerBranch />
       <div className="mx-auto max-w-7xl px-6 md:px-12">
         <p className="reveal text-[11px] font-bold uppercase tracking-[0.3em] text-cream/50">
           Pricing

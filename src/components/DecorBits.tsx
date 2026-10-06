@@ -84,9 +84,8 @@ export function TreelineDivider() {
   );
 }
 
-/* ---------- 3. Edge parallax foliage: slow-drifting depth layers ---------- */
+/* ---------- 3. Edge parallax foliage: slow-drifting depth layer ---------- */
 export function EdgeFoliage() {
-  const leftRef = useRef<HTMLDivElement>(null);
   const rightRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -96,7 +95,6 @@ export function EdgeFoliage() {
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
         const y = window.scrollY;
-        if (leftRef.current) leftRef.current.style.transform = `translateY(${y * 0.14}px)`;
         if (rightRef.current) rightRef.current.style.transform = `translateY(${y * 0.22}px)`;
       });
     };
@@ -110,28 +108,6 @@ export function EdgeFoliage() {
 
   return (
     <>
-      {/* left: oversized leaf, peeking in from the edge */}
-      <div
-        ref={leftRef}
-        className="pointer-events-none fixed -left-20 top-24 z-[60] hidden opacity-[0.13] lg:block"
-        aria-hidden="true"
-      >
-        <svg viewBox="0 0 200 320" className="h-[420px] w-auto">
-          <path
-            d="M100 8 C170 90 180 210 100 312 C20 210 30 90 100 8 Z"
-            fill="none"
-            stroke="#7fb98a"
-            strokeWidth="5"
-          />
-          <path d="M100 20 L100 300" stroke="#7fb98a" strokeWidth="3" />
-          <path d="M100 90 C130 100 145 115 150 135" stroke="#7fb98a" strokeWidth="2.5" fill="none" />
-          <path d="M100 90 C70 100 55 115 50 135" stroke="#7fb98a" strokeWidth="2.5" fill="none" />
-          <path d="M100 170 C130 180 145 195 150 215" stroke="#7fb98a" strokeWidth="2.5" fill="none" />
-          <path d="M100 170 C70 180 55 195 50 215" stroke="#7fb98a" strokeWidth="2.5" fill="none" />
-          <path d="M100 240 C122 248 132 258 135 272" stroke="#7fb98a" strokeWidth="2.5" fill="none" />
-          <path d="M100 240 C78 248 68 258 65 272" stroke="#7fb98a" strokeWidth="2.5" fill="none" />
-        </svg>
-      </div>
       {/* right: wood-grain rings, peeking in from the edge */}
       <div
         ref={rightRef}

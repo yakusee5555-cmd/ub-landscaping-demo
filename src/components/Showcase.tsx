@@ -358,7 +358,6 @@ export function Pricing() {
                   ? "bg-cream text-charcoal shadow-[0_24px_70px_rgba(0,0,0,0.45)]"
                   : "border border-cream/15 bg-white/[0.03] text-cream"
               }`}
-              style={{ transitionDelay: `${i * 110}ms` }}
             >
               {t.popular && (
                 <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-forest px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.25em] text-cream">

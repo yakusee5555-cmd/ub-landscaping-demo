@@ -319,9 +319,6 @@ export function Footer() {
               </svg>
               <span className="font-display text-lg uppercase text-cream">U&B Landscaping and Tree Service</span>
             </div>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream/60">
-              Landscape design, irrigation &amp; tree care across Queens, NY.
-            </p>
             <a
               href={BUSINESS.phoneHref}
               className="mt-4 inline-block font-display text-xl text-cream underline decoration-forest decoration-2 underline-offset-4 hover:text-white"

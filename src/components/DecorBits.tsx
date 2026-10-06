@@ -111,10 +111,10 @@ export function EdgeFoliage() {
       {/* right: wood-grain rings, peeking in from the edge */}
       <div
         ref={rightRef}
-        className="pointer-events-none fixed -right-24 top-1/3 z-[60] hidden opacity-[0.13] lg:block"
+        className="pointer-events-none fixed -right-28 top-1/3 z-[60] hidden opacity-10 lg:block"
         aria-hidden="true"
       >
-        <svg viewBox="0 0 200 200" className="h-[380px] w-auto">
+        <svg viewBox="0 0 200 200" className="h-[220px] w-auto">
           <g fill="none" stroke="#c8a06a" strokeWidth="4">
             <circle cx="100" cy="100" r="92" />
             <circle cx="100" cy="100" r="74" />

@@ -2,7 +2,7 @@ import Hero from "../components/Hero";
 import { Contact, Reviews } from "../components/Sections";
 import { DarkList, FullBleed, Pricing, Stacked, Work } from "../components/Showcase";
 import { Marquee } from "../components/MotionBits";
-import { TreelineDivider, WoodSlab } from "../components/DecorBits";
+import { TreelineDivider } from "../components/DecorBits";
 import { RouteFX } from "../components/PageBits";
 
 const MARQUEE_ITEMS = [
@@ -33,7 +33,6 @@ export default function Home() {
       <TreelineDivider />
       <FullBleed />
       <Work />
-      <WoodSlab />
       <Pricing />
       <Reviews />
       <Contact />

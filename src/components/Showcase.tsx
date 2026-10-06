@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { FLOAT_CARDS, GLASS_CARDS, LIST_ROWS, STACK_WORDS, WORK_SHOTS } from "../data";
-import { CornerBranch } from "./DecorBits";
 
 /* ---------- Section 2: stacked headline + floating cards (like "Homes. Loans. Agents. Tours.") ---------- */
 export function Stacked() {
@@ -228,10 +227,112 @@ const TIERS = [
   },
 ];
 
+/* ---------- Lawn-mower pricing reveal ----------
+   Grass overlay gets "mowed" away by a mower driving across on scroll,
+   then the pricing cards stagger in underneath. */
+function MowReveal({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const mowerRef = useRef<HTMLDivElement>(null);
+  const grassRef = useRef<HTMLDivElement>(null);
+  const started = useRef(false);
+  const [cardsIn, setCardsIn] = useState(false);
+  const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setCardsIn(true);
+      setDone(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || started.current) return;
+        started.current = true;
+        const W = el.offsetWidth;
+        const START = -190;
+        const DIST = W + 380;
+        const DUR = 2500;
+        const t0 = performance.now();
+        let cardsFired = false;
+        const tick = (t: number) => {
+          const p = Math.min(1, (t - t0) / DUR); // linear, per spec
+          const x = START + p * DIST;
+          if (mowerRef.current) mowerRef.current.style.transform = `translateX(${x.toFixed(1)}px)`;
+          // grass vanishes right behind the mower's back edge
+          if (grassRef.current)
+            grassRef.current.style.clipPath = `inset(0 0 0 ${Math.max(0, x + 70).toFixed(1)}px)`;
+          if (p >= 0.5 && !cardsFired) {
+            cardsFired = true;
+            setCardsIn(true);
+          }
+          if (p < 1) requestAnimationFrame(tick);
+          else setDone(true);
+        };
+        requestAnimationFrame(tick);
+      },
+      { threshold: 0.25 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className={`relative mt-8 overflow-hidden md:mt-12 ${cardsIn ? "mow-in" : ""}`}>
+      {/* layer 1: pricing cards */}
+      <div className="relative z-[1] grid grid-cols-1 gap-5 md:grid-cols-3">{children}</div>
+      {/* layer 2: overgrown grass overlay */}
+      {!done && (
+        <div ref={grassRef} className="absolute inset-0 z-[2]" style={{ clipPath: "inset(0 0 0 0)" }}>
+          <div className="absolute inset-0 bg-[#14532d]" />
+          <svg className="absolute inset-0 h-full w-full" aria-hidden="true">
+            <defs>
+              <pattern id="mowgrass" width="52" height="52" patternUnits="userSpaceOnUse">
+                <path d="M10 52 C12 40 10 30 14 18" stroke="#1d6a3a" strokeWidth="5" fill="none" strokeLinecap="round" />
+                <path d="M26 52 C26 38 30 30 28 14" stroke="#22914a" strokeWidth="5" fill="none" strokeLinecap="round" />
+                <path d="M42 52 C44 42 40 32 44 22" stroke="#1d6a3a" strokeWidth="5" fill="none" strokeLinecap="round" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#mowgrass)" />
+          </svg>
+        </div>
+      )}
+      {/* layer 3: lawnmower, starts off-screen left, rides the bottom edge */}
+      {!done && (
+        <div
+          ref={mowerRef}
+          className="absolute bottom-1 left-0 z-[3] w-40 md:w-48"
+          style={{ transform: "translateX(-190px)" }}
+        >
+          <svg viewBox="0 0 170 115" className="h-auto w-full" aria-hidden="true">
+            <path d="M118 8 L100 62" stroke="#2b2b2b" strokeWidth="9" strokeLinecap="round" />
+            <path d="M118 8 L144 8" stroke="#2b2b2b" strokeWidth="9" strokeLinecap="round" />
+            <rect x="104" y="52" width="44" height="38" rx="7" fill="#2d5a3d" />
+            <rect x="104" y="52" width="44" height="38" rx="7" fill="none" stroke="#16351f" strokeWidth="3" />
+            <rect x="28" y="62" width="82" height="26" rx="9" fill="#c23b2e" />
+            <rect x="28" y="62" width="82" height="26" rx="9" fill="none" stroke="#7e231b" strokeWidth="3" />
+            <rect x="44" y="44" width="34" height="22" rx="5" fill="#3a3a3a" />
+            <rect x="52" y="32" width="18" height="14" rx="3" fill="#222" />
+            <g className="mower-wheel">
+              <circle cx="50" cy="96" r="15" fill="#1c1c1c" />
+              <circle cx="50" cy="96" r="6" fill="#9aa0a6" />
+            </g>
+            <g className="mower-wheel">
+              <circle cx="102" cy="96" r="15" fill="#1c1c1c" />
+              <circle cx="102" cy="96" r="6" fill="#9aa0a6" />
+            </g>
+            <rect x="62" y="88" width="28" height="5" rx="2.5" fill="#cfd4d9" />
+          </svg>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function Pricing() {
   return (
-    <section id="pricing" className="relative overflow-hidden bg-ink py-12 md:py-32">
-      <CornerBranch />
+    <section id="pricing" className="bg-ink py-10 md:py-20">
       <div className="mx-auto max-w-7xl px-6 md:px-12">
         <p className="reveal text-[11px] font-bold uppercase tracking-[0.3em] text-cream/50">
           Pricing
@@ -248,11 +349,11 @@ export function Pricing() {
           </p>
         </div>
 
-        <div data-stagger className="mt-8 grid grid-cols-1 gap-5 md:mt-12 md:grid-cols-3">
-          {TIERS.map((t, i) => (
+        <MowReveal>
+          {TIERS.map((t) => (
             <article
               key={t.name}
-              className={`reveal relative flex flex-col rounded-2xl p-7 md:p-8 transition-transform duration-500 hover:-translate-y-2 ${
+              className={`mow-card relative flex flex-col rounded-2xl p-7 md:p-8 transition-transform duration-500 hover:-translate-y-2 ${
                 t.popular
                   ? "bg-cream text-charcoal shadow-[0_24px_70px_rgba(0,0,0,0.45)]"
                   : "border border-cream/15 bg-white/[0.03] text-cream"
@@ -305,7 +406,7 @@ export function Pricing() {
               </a>
             </article>
           ))}
-        </div>
+        </MowReveal>
 
         {/* slim quote band */}
         <div

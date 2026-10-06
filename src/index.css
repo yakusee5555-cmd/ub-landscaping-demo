@@ -63,6 +63,14 @@ body {
     transform: scale(1) !important;
     transition: none !important;
   }
+  .mow-card {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .mower-wheel {
+    animation: none !important;
+  }
   .draw path {
     stroke-dashoffset: 0 !important;
     transition: none !important;
@@ -245,6 +253,30 @@ body {
 }
 .branch-swing:hover {
   animation: branch-swing 2.4s ease-in-out infinite;
+}
+
+/* ---- lawn-mower pricing reveal ---- */
+.mow-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.mow-in .mow-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+.mow-in .mow-card:nth-child(1) { transition-delay: 0s; }
+.mow-in .mow-card:nth-child(2) { transition-delay: 0.12s; }
+.mow-in .mow-card:nth-child(3) { transition-delay: 0.24s; }
+@keyframes wheel-spin {
+  to { transform: rotate(360deg); }
+}
+.mower-wheel {
+  animation: wheel-spin 0.55s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
 }
 
 /* ---- treeline divider: pines pop up from their bases, staggered ---- */

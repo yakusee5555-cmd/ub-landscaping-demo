@@ -42,9 +42,21 @@ body {
   .floaty-3 {
     animation: none !important;
   }
-  .reveal {
+  .reveal,
+  .rv-left,
+  .rv-right,
+  .rv-scale {
     opacity: 1 !important;
     transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+  .marquee-track,
+  .cue-line {
+    animation: none !important;
+  }
+  .draw path {
+    stroke-dashoffset: 0 !important;
     transition: none !important;
   }
 }
@@ -117,17 +129,95 @@ body {
   animation: floaty 7.5s ease-in-out 1.6s infinite;
 }
 
-/* ---- scroll reveal ---- */
+/* ---- scroll reveal: cinematic rise + unblur + settle ---- */
 .reveal {
   opacity: 0;
-  transform: translateY(36px);
+  transform: translateY(44px) scale(0.985);
+  filter: blur(8px);
   transition:
-    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform, filter;
 }
 .reveal.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+/* directional + scale variants */
+.rv-left {
+  transform: translateX(-56px) scale(0.99);
+}
+.rv-right {
+  transform: translateX(56px) scale(0.99);
+}
+.rv-scale {
+  transform: scale(0.92);
+}
+.rv-left.visible,
+.rv-right.visible,
+.rv-scale.visible {
+  transform: translateX(0) scale(1);
+}
+/* auto-stagger: children of [data-stagger] cascade in */
+[data-stagger] > *:nth-child(1) { transition-delay: 0s; }
+[data-stagger] > *:nth-child(2) { transition-delay: 0.08s; }
+[data-stagger] > *:nth-child(3) { transition-delay: 0.16s; }
+[data-stagger] > *:nth-child(4) { transition-delay: 0.24s; }
+[data-stagger] > *:nth-child(5) { transition-delay: 0.32s; }
+[data-stagger] > *:nth-child(6) { transition-delay: 0.4s; }
+[data-stagger] > *:nth-child(7) { transition-delay: 0.48s; }
+[data-stagger] > *:nth-child(8) { transition-delay: 0.56s; }
+
+/* ---- marquee strip ---- */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ---- button shine sweep (not a fade) ---- */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.35) 50%, transparent 60%);
+  transform: translateX(-120%);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+.btn-shine:hover::after {
+  transform: translateX(120%);
+}
+
+/* ---- self-drawing SVG line ---- */
+.draw path {
+  stroke-dasharray: var(--dash, 1200);
+  stroke-dashoffset: var(--dash, 1200);
+  transition: stroke-dashoffset 2.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.draw.visible path {
+  stroke-dashoffset: 0;
+}
+
+/* ---- scroll cue ---- */
+@keyframes cue-drop {
+  0% { transform: translateY(-100%); }
+  55% { transform: translateY(100%); }
+  100% { transform: translateY(100%); }
+}
+.cue-line {
+  animation: cue-drop 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
 }
 
 /* ---- outlined ghost text ---- */

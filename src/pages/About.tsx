@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { BUSINESS, GLASS_CARDS, REVIEWS } from "../data";
 import { CtaBand, Faq, PageHero, RouteFX } from "../components/PageBits";
+import { CountUp } from "../components/MotionBits";
 
 const VALUES = [
   {
     title: "Climbers, not cutters",
-    desc: "Every crew lead is a trained climbing arborist. We rig trees down — we don't drop them and hope.",
+    desc: "Every crew lead is a trained climbing arborist. We rig trees down. We don't drop them and hope.",
   },
   {
     title: "Priced on-site, in writing",
@@ -22,7 +23,7 @@ const VALUES = [
 ];
 
 const TIMELINE = [
-  { year: "2008", text: "U&B starts in Jamaica — landscaping and tree care from day one." },
+  { year: "2008", text: "U&B starts in Jamaica: landscaping and tree care from day one." },
   { year: "2014", text: "Second crew added as word spreads across Queens." },
   { year: "2020", text: "BBB certified. Landscape design arm keeps growing." },
   { year: "2026", text: "18+ years in, still answering our own phones." },
@@ -33,7 +34,7 @@ export default function About() {
     <>
       <RouteFX
         title="About U&B Landscaping and Tree Service | Jamaica, NY Tree Care Company"
-        description="Meet U&B Landscaping and Tree Service — trained climbing arborists serving Jamaica, Queens since 2008. BBB certified, licensed & insured."
+        description="Meet U&B Landscaping and Tree Service, trained climbing arborists serving Jamaica, Queens since 2008. BBB certified, licensed & insured."
       />
       <PageHero
         eyebrow="About U&B"
@@ -44,7 +45,7 @@ export default function About() {
             Not a call center.
           </>
         }
-        sub="We're a crew of landscapers and climbers from Queens. When you call U&B, you talk to someone who's been up the tree — not a sales rep reading a script."
+        sub="We're a crew of landscapers and climbers from Queens. When you call U&B, you talk to someone who's been up the tree. Not a sales rep reading a script."
         img="/img/arborist1.jpg"
       />
 
@@ -65,7 +66,7 @@ export default function About() {
             <p>
               U&B started in 2016 with two climbers, one bucket truck, and a simple
               idea: do tree work the right way and the phone keeps ringing. No door-knocking,
-              no storm-chasing out-of-state crews — just neighbors telling neighbors.
+              no storm-chasing out-of-state crews. Just neighbors telling neighbors.
             </p>
             <p>
               Eighteen years later we're running experienced crews across Queens
@@ -85,9 +86,9 @@ export default function About() {
       <section className="bg-ink py-12 md:py-20">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 md:grid-cols-4 md:px-12">
           {[
-            { n: "18+", l: "Years in business" },
-            { n: "3,200+", l: "Jobs completed" },
-            { n: BUSINESS.rating, l: `${BUSINESS.reviewCount} Google reviews` },
+            { n: <CountUp to={18} suffix="+" />, l: "Years in business" },
+            { n: <CountUp to={3200} suffix="+" />, l: "Jobs completed" },
+            { n: <CountUp to={4.3} decimals={1} />, l: `${BUSINESS.reviewCount} Google reviews` },
             { n: "BBB", l: "Certified business" },
           ].map((s) => (
             <div key={s.l} className="reveal text-center md:text-left">
@@ -209,7 +210,7 @@ export default function About() {
               items={[
                 {
                   q: "Are you licensed and insured?",
-                  a: "Yes — fully licensed and insured on every job, and we'll show you the certificates before we start.",
+                  a: "Yes. Fully licensed and insured on every job, and we'll show you the certificates before we start.",
                 },
                 {
                   q: "Do you give free estimates?",

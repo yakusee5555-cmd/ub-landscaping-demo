@@ -18,7 +18,7 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
     tagline: "Weekly care that keeps it sharp.",
     img: "/img/treesvc.jpg",
     description: [
-      "A great yard isn't an accident — it's a routine. U&B handles the mowing, edging, bed care, and seasonal color that keeps your Jamaica property looking sharp all year.",
+      "A great yard isn't an accident. It's a routine. U&B handles the mowing, edging, bed care, and seasonal color that keeps your Jamaica property looking sharp all year.",
       "One crew, one schedule, zero headaches. We show up when we say we will and leave every visit cleaner than we found it.",
     ],
     included: [
@@ -33,9 +33,9 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
       { title: "Walkthrough & plan",
         desc: "We walk the property with you, note the trouble spots, and set a schedule that fits.", },
       { title: "First deep cleanup",
-        desc: "We reset everything once — beds, edges, overgrowth — so maintenance starts from clean.", },
+        desc: "We reset everything once: beds, edges, overgrowth. So maintenance starts from clean.", },
       { title: "Regular visits",
-        desc: "Weekly or biweekly, same crew, same day. You'll barely notice we're there — except the yard.", },
+        desc: "Weekly or biweekly, same crew, same day. You'll barely notice we're there. Except the yard.", },
       { title: "Seasonal refresh",
         desc: "Spring wake-up, summer color, fall cleanup. The yard never has an off-season.", },
     ],
@@ -51,14 +51,14 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
       },
       {
         q: "Do you bring your own equipment?",
-        a: "Yes — mowers, trimmers, blowers, all of it. You don't lift a finger.",
+        a: "Yes. Mowers, trimmers, blowers, all of it. You don't lift a finger.",
       },
       {
         q: "What about fall leaves?",
         a: "Covered. Leaf season gets extra visits and full removal so beds and lawns go into winter clean.",
       },
     ],
-    meta: "Landscaping in Jamaica, Queens NY. Mowing, beds, seasonal color, cleanups. Free estimates — U&B Landscaping and Tree Service.",
+    meta: "Landscaping in Jamaica, Queens NY. Mowing, beds, seasonal color, cleanups. Free estimates. U&B Landscaping and Tree Service.",
   },
   {
     slug: "landscape-design",
@@ -66,7 +66,7 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
     tagline: "Planting with year-round color.",
     img: "/img/arborist2.jpg",
     description: [
-      "Anyone can plant a bush. We design beds and borders that look good in April and still look good in November — matched to your sun, your soil, and how much maintenance you actually want to do.",
+      "Anyone can plant a bush. We design beds and borders that look good in April and still look good in November, matched to your sun, your soil, and how much maintenance you actually want to do.",
       "You get a real plan before anything goes in the ground: what goes where, why it works, and what it costs. No surprises, no dead plants by August.",
     ],
     included: [
@@ -81,7 +81,7 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
       { title: "Consultation",
         desc: "We walk the yard, talk about what you want, and take sun and soil into account.", },
       { title: "The plan",
-        desc: "You get a planting plan with every plant named and priced — approve it before we dig.", },
+        desc: "You get a planting plan with every plant named and priced. Approve it before we dig.", },
       { title: "Installation",
         desc: "Beds built, plants in, mulch down. Most installs finish in days, not weeks.", },
       { title: "Aftercare",
@@ -91,7 +91,7 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
     faqs: [
       {
         q: "How much does landscape design cost?",
-        a: "Plans start at $499. Installs depend on size and plant choices — we quote everything up front, plant by plant.",
+        a: "Plans start at $499. Installs depend on size and plant choices. We quote everything up front, plant by plant.",
       },
       {
         q: "Will the plants survive?",
@@ -99,14 +99,14 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
       },
       {
         q: "Can you work in phases?",
-        a: "Absolutely — most clients do front yard first, backyard later. The plan covers the whole property so phases connect.",
+        a: "Absolutely. Most clients do front yard first, backyard later. The plan covers the whole property so phases connect.",
       },
       {
         q: "Do you do native plants?",
-        a: "Yes, and we recommend them where they fit — less water, less fuss, better for pollinators.",
+        a: "Yes, and we recommend them where they fit: less water, less fuss, better for pollinators.",
       },
     ],
-    meta: "Landscape design in Jamaica, Queens NY. Planting plans, bed installs, year-round color. Free consultation — U&B Landscaping and Tree Service.",
+    meta: "Landscape design in Jamaica, Queens NY. Planting plans, bed installs, year-round color. Free consultation. U&B Landscaping and Tree Service.",
   },
   {
     slug: "irrigation",
@@ -114,7 +114,7 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
     tagline: "Green lawns, less water waste.",
     img: "/img/forest.jpg",
     description: [
-      "Brown spots and swampy corners usually mean one thing: the sprinklers aren't doing their job. U&B installs and repairs irrigation systems sized for your actual lawn — even coverage, no geysers, no dead zones.",
+      "Brown spots and swampy corners usually mean one thing: the sprinklers aren't doing their job. U&B installs and repairs irrigation systems sized for your actual lawn: even coverage, no geysers, no dead zones.",
       "We also fix what the last guy left behind: broken heads, leaking valves, and controllers still running like it's 2009.",
     ],
     included: [
@@ -133,28 +133,28 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
       { title: "Install / repair",
         desc: "Trenches cut clean, heads set level, everything tested zone by zone before we leave.", },
       { title: "Tune-up",
-        desc: "We dial in run times so you're watering deeply, not daily — greener lawn, smaller bill.", },
+        desc: "We dial in run times so you're watering deeply, not daily. Greener lawn, smaller bill.", },
     ],
     pricingHint: "Repairs from $149; full installs quoted free on-site after the walkthrough.",
     faqs: [
       {
         q: "How much does a sprinkler system cost?",
-        a: "Depends on zones and lawn size — most Jamaica homes land $2,500–$6,000 installed. The walkthrough and quote are free.",
+        a: "Depends on zones and lawn size: most Jamaica homes land $2,500–$6,000 installed. The walkthrough and quote are free.",
       },
       {
         q: "Can you fix my existing system?",
-        a: "Usually, yes. Broken heads, bad valves, and tired controllers are most of what we see — repairs start at $149.",
+        a: "Usually, yes. Broken heads, bad valves, and tired controllers are most of what we see. Repairs start at $149.",
       },
       {
         q: "Do I need winterization?",
-        a: "Yes — Queens freezes hard enough to crack pipes and valves. Our fall blowout takes an hour and saves a spring rebuild.",
+        a: "Yes. Queens freezes hard enough to crack pipes and valves. Our fall blowout takes an hour and saves a spring rebuild.",
       },
       {
         q: "Are smart controllers worth it?",
         a: "If you travel or just forget, yes. They skip watering when it rains and most pay for themselves in a season or two.",
       },
     ],
-    meta: "Irrigation in Jamaica, Queens NY. Sprinkler installs, repairs, winterization. Free estimates — U&B Landscaping and Tree Service.",
+    meta: "Irrigation in Jamaica, Queens NY. Sprinkler installs, repairs, winterization. Free estimates. U&B Landscaping and Tree Service.",
   },
   {
     slug: "tree-trimming",
@@ -163,7 +163,7 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
     img: "/img/arborist1.jpg",
     description: [
       "Good pruning is part science, part art. We thin crowded canopies so light and air get through, remove deadwood before it becomes a hazard, and shape trees so they grow strong instead of splitting in the next storm.",
-      "Bad pruning — topping, lion-tailing, flush cuts — ruins trees. We cut to ANSI standards, which means your trees heal clean and stay healthy for decades.",
+      "Bad pruning (topping, lion-tailing, flush cuts) ruins trees. We cut to ANSI standards, which means your trees heal clean and stay healthy for decades.",
     ],
     included: [
       "Crown thinning & deadwood removal",
@@ -175,7 +175,7 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
     ],
     steps: [
       { title: "Canopy assessment",
-        desc: "We walk the tree with you and mark exactly what's coming off and why — no surprises.", },
+        desc: "We walk the tree with you and mark exactly what's coming off and why. No surprises.", },
       { title: "Targeted cuts",
         desc: "Deadwood out, crossing limbs out, weight reduced where it matters. Clean cuts at the branch collar.", },
       { title: "Clearance work",
@@ -187,7 +187,7 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
     faqs: [
       {
         q: "When is the best time to prune?",
-        a: "Late winter is ideal for most species — the tree is dormant and structure is easy to see. But dead or hazardous limbs should come off any time of year.",
+        a: "Late winter is ideal for most species: the tree is dormant and structure is easy to see, but dead or hazardous limbs should come off any time of year.",
       },
       {
         q: "Will pruning hurt my tree?",
@@ -202,7 +202,7 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
         a: "Most mature shade trees benefit from a professional prune every 3–5 years. Fast growers usually need attention every 1–2 years.",
       },
     ],
-    meta: "Tree trimming & pruning in Jamaica, Queens NY. Crown thinning, deadwood removal, clearance cuts. Free estimates — U&B Landscaping and Tree Service.",
+    meta: "Tree trimming & pruning in Jamaica, Queens NY. Crown thinning, deadwood removal, clearance cuts. Free estimates. U&B Landscaping and Tree Service.",
   },
   {
     slug: "tree-removal",
@@ -210,20 +210,20 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
     tagline: "Safe takedowns in tight spaces.",
     img: "/img/felling.jpg",
     description: [
-      "Some trees can't be saved — dead, diseased, storm-damaged, or just in the wrong spot. U&B removes them safely, even when they're leaning over your roof, tangled in power lines, or boxed in by fences on every side.",
-      "Our crews are trained climbers, not guys with a ladder and a hope. We rig every limb down in controlled sections, so nothing free-falls and nothing gets crushed.",
+      "Some trees can't be saved: dead, diseased, storm-damaged, or just in the wrong spot. U&B removes them safely, even when they're leaning over your roof, tangled in power lines, or boxed in by fences on every side.",
+      "Our crews are trained climbers, not guys with a ladder and a hope.  We rig every limb down in controlled sections, so nothing free-falls and nothing gets crushed.",
     ],
     included: [
       "Controlled sectional takedowns",
       "Large-tree specialists",
       "Trees near structures, lines & fences",
       "Stump grinding add-on available",
-      "Full property cleanup — chips, limbs, sawdust",
+      "Full property cleanup: chips, limbs, sawdust",
       "Wood left as firewood or hauled away, your call",
     ],
     steps: [
       { title: "Free on-site assessment",
-        desc: "We look at the tree, the obstacles, and the access — then give you a firm price on the spot.", },
+        desc: "We look at the tree, the obstacles, and the access. Then we give you a firm price on the spot.", },
       { title: "Rigging plan",
         desc: "Every limb gets a plan: what comes down first, where it lands, and how it's lowered.", },
       { title: "Sectional takedown",
@@ -239,7 +239,7 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
       },
       {
         q: "Can you remove a tree close to my house?",
-        a: "Yes — that's most of what we do. We dismantle trees in sections and lower each piece with ropes, so nothing touches your roof, fence, or landscaping.",
+        a: "Yes, that's most of what we do. We dismantle trees in sections and lower each piece with ropes, so nothing touches your roof, fence, or landscaping.",
       },
       {
         q: "Do you take the stump too?",
@@ -247,10 +247,10 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
       },
       {
         q: "Are you insured?",
-        a: "Fully licensed and insured on every job. We'll show you the paperwork before we start — no exceptions.",
+        a: "Fully licensed and insured on every job. We'll show you the paperwork before we start. No exceptions.",
       },
     ],
-    meta: "Tree removal in Jamaica, Queens NY. Safe takedowns, tight spaces, full cleanup. Free estimates — U&B Landscaping and Tree Service.",
+    meta: "Tree removal in Jamaica, Queens NY. Safe takedowns, tight spaces, full cleanup. Free estimates. U&B Landscaping and Tree Service.",
   },
   {
     slug: "canopy-cleaning",
@@ -259,7 +259,7 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
     img: "/img/storm1.jpg",
     description: [
       "Look up into most mature trees and you'll see it: dead limbs hanging over the driveway, crossing branches rubbing bark raw, weight building where you don't want it. Canopy cleaning takes all of that out before the next storm does it for you.",
-      "It's the single best thing you can do for an older tree short of removal — safer, healthier, and it lets light back into the yard below.",
+      "It's the single best thing you can do for an older tree short of removal. Safer, healthier, and it lets light back into the yard below.",
     ],
     included: [
       "Deadwood & hanger removal",
@@ -287,7 +287,7 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
       },
       {
         q: "Will it help in storms?",
-        a: "Yes — deadwood is what breaks off first. A cleaned canopy moves with wind instead of fighting it.",
+        a: "Yes. Deadwood is what breaks off first. A cleaned canopy moves with wind instead of fighting it.",
       },
       {
         q: "How often does a tree need it?",
@@ -295,9 +295,9 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
       },
       {
         q: "Do you haul everything away?",
-        a: "Yes — chipped on-site and hauled. Nothing left behind but a healthier tree.",
+        a: "Yes. Chipped on-site and hauled. Nothing left behind but a healthier tree.",
       },
     ],
-    meta: "Canopy cleaning in Jamaica, Queens NY. Deadwood removal, storm prep, healthier trees. Free estimates — U&B Landscaping and Tree Service.",
+    meta: "Canopy cleaning in Jamaica, Queens NY. Deadwood removal, storm prep, healthier trees. Free estimates. U&B Landscaping and Tree Service.",
   },
 ];

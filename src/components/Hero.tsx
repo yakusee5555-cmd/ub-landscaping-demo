@@ -1,9 +1,11 @@
 import { useEffect, useRef } from "react";
+import { ScrollCue } from "./MotionBits";
 
 export default function Hero() {
   const backRef = useRef<HTMLDivElement>(null);
   const foreRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const markRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     // Skip parallax on mobile + reduced-motion: layers stay static, content fully visible
@@ -20,6 +22,12 @@ export default function Hero() {
         const y = window.scrollY;
         if (backRef.current) backRef.current.style.transform = `translateY(${y * 0.25}px)`;
         if (foreRef.current) foreRef.current.style.transform = `translateY(${y * 0.12}px)`;
+        if (markRef.current) {
+          // wordmark drifts up slower and shrinks as you scroll — scrollytelling depth
+          const s = Math.max(0.72, 1 - y / 2400);
+          markRef.current.style.transform = `translateY(${-y * 0.08}px) scale(${s})`;
+          markRef.current.style.opacity = String(Math.max(0.25, 1 - y / 900));
+        }
         if (contentRef.current)
           contentRef.current.style.opacity = String(Math.max(0, 1 - y / 500));
       });
@@ -38,7 +46,10 @@ export default function Hero() {
       <div ref={backRef} className="absolute inset-0 will-change-transform">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,#18261c_0%,#0b100d_70%)]" />
         <div className="absolute inset-0 flex items-center justify-center px-4">
-          <h1 className="hero-title font-display font-black text-[#f4efe4] leading-none tracking-tight select-none text-[clamp(2.25rem,11vw,21rem)]">
+          <h1
+            ref={markRef}
+            className="hero-title font-display font-black text-[#f4efe4] leading-none tracking-tight select-none text-[clamp(2.25rem,11vw,21rem)] will-change-transform"
+          >
             U&B
           </h1>
         </div>
@@ -87,13 +98,13 @@ export default function Hero() {
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <a
                 href="#contact"
-                className="flex min-h-[48px] items-center justify-center rounded-full bg-[#f4efe4] px-8 py-4 text-center text-sm font-bold tracking-widest text-[#0b100d] hover:bg-white transition-colors"
+                className="btn-shine flex min-h-[48px] items-center justify-center rounded-full bg-[#f4efe4] px-8 py-4 text-center text-sm font-bold tracking-widest text-[#0b100d] hover:bg-white transition-colors"
               >
                 FREE ESTIMATE
               </a>
               <a
                 href="tel:+19174170195"
-                className="flex min-h-[48px] items-center justify-center rounded-full border border-white/60 px-8 py-4 text-center text-sm font-bold tracking-widest text-white hover:bg-white/10 transition-colors"
+                className="btn-shine flex min-h-[48px] items-center justify-center rounded-full border border-white/60 px-8 py-4 text-center text-sm font-bold tracking-widest text-white hover:bg-white/10 transition-colors"
               >
                 (917) 417-0195
               </a>
@@ -101,6 +112,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      <ScrollCue />
     </section>
   );
 }

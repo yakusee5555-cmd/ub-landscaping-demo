@@ -6,8 +6,8 @@ export function Stacked() {
   return (
     <section id="services" className="relative overflow-hidden bg-cream py-12 md:py-32">
       <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 md:px-12 lg:grid-cols-[1.1fr_1fr]">
-        <div>
-          <p className="reveal mb-3 inline-block rounded-full border border-charcoal/15 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.25em] text-charcoal/70">
+        <div className="reveal rv-left">
+          <p className="mb-3 inline-block rounded-full border border-charcoal/15 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.25em] text-charcoal/70">
             What we do
           </p>
           <h2 className="font-display leading-[0.98]">
@@ -167,7 +167,7 @@ export function FullBleed() {
           Big-company gear. Neighborly care.
         </h2>
 
-        <div className="mt-8 grid grid-cols-1 gap-3 md:mt-16 md:grid-cols-2 md:gap-5 lg:grid-cols-4">
+        <div data-stagger className="mt-8 grid grid-cols-1 gap-3 md:mt-16 md:grid-cols-2 md:gap-5 lg:grid-cols-4">
           {GLASS_CARDS.map((c, i) => (
             <div
               key={c.title}
@@ -246,7 +246,7 @@ export function Pricing() {
           </p>
         </div>
 
-        <div className="mt-8 grid grid-cols-1 gap-5 md:mt-12 md:grid-cols-3">
+        <div data-stagger className="mt-8 grid grid-cols-1 gap-5 md:mt-12 md:grid-cols-3">
           {TIERS.map((t, i) => (
             <article
               key={t.name}

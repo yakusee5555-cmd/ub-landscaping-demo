@@ -144,7 +144,7 @@ export const SERVICES: Service[] = [
   {
     img: "/img/treesvc.jpg",
     title: "Landscaping",
-    desc: "Complete lawn and landscape care — mowing, beds, and seasonal color that keeps the whole property sharp.",
+    desc: "Complete lawn and landscape care: mowing, beds, and seasonal color that keeps the whole property sharp.",
   },
   {
     img: "/img/arborist2.jpg",
@@ -164,7 +164,7 @@ export const SERVICES: Service[] = [
   {
     img: "/img/felling.jpg",
     title: "Tree removal",
-    desc: "Safe, controlled takedowns of dead or hazardous trees — even in tight Jamaica lots.",
+    desc: "Safe, controlled takedowns of dead or hazardous trees, even in tight Jamaica lots.",
   },
   {
     img: "/img/storm1.jpg",

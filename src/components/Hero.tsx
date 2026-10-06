@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { ScrollCue } from "./MotionBits";
+import QuoteForm from "./QuoteForm";
 
 export default function Hero() {
   const backRef = useRef<HTMLDivElement>(null);
@@ -41,7 +42,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-[100svh] overflow-hidden bg-[#0b100d]">
+    <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-[#0b100d]">
       {/* BACK LAYER — atmosphere + giant wordmark sitting behind the trees */}
       <div ref={backRef} className="absolute inset-0 will-change-transform">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,#18261c_0%,#0b100d_70%)]" />
@@ -73,7 +74,7 @@ export default function Hero() {
       {/* CONTENT */}
       <div
         ref={contentRef}
-        className="absolute inset-0 z-20 flex flex-col justify-between px-6 md:px-12 pt-28 pb-8"
+        className="relative z-20 flex flex-1 flex-col justify-between px-6 md:px-12 pt-28 pb-10"
       >
         <div className="hero-fade flex justify-end" style={{ animationDelay: "0.9s" }}>
           <p className="text-right text-[11px] md:text-xs font-bold tracking-[0.35em] text-white/70 leading-loose">
@@ -81,18 +82,18 @@ export default function Hero() {
           </p>
         </div>
 
-        <div>
-          <p
-            className="hero-fade text-center text-xs md:text-sm font-bold tracking-[0.5em] text-white/80 mb-8"
-            style={{ animationDelay: "1.1s" }}
-          >
-            LANDSCAPING & TREE SERVICE
-          </p>
-          <div
-            className="hero-fade flex flex-col md:flex-row items-start md:items-end justify-between gap-6"
-            style={{ animationDelay: "1.2s" }}
-          >
-            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+        <div className="grid items-end gap-8 lg:grid-cols-[1fr_auto]">
+          <div>
+            <p
+              className="hero-fade text-center text-xs md:text-sm font-bold tracking-[0.5em] text-white/80 lg:text-left"
+              style={{ animationDelay: "1.1s" }}
+            >
+              LANDSCAPING & TREE SERVICE
+            </p>
+            <div
+              className="hero-fade mt-8 flex flex-col gap-3 sm:flex-row"
+              style={{ animationDelay: "1.2s" }}
+            >
               <a
                 href="#contact"
                 className="btn-shine flex min-h-[48px] items-center justify-center rounded-full bg-[#f4efe4] px-8 py-4 text-center text-sm font-bold tracking-widest text-[#0b100d] hover:bg-white transition-colors"
@@ -107,6 +108,7 @@ export default function Hero() {
               </a>
             </div>
           </div>
+          <QuoteForm />
         </div>
       </div>
       <ScrollCue />

@@ -178,9 +178,6 @@ body {
 .marquee-track {
   animation: marquee 28s linear infinite;
 }
-.marquee-track:hover {
-  animation-play-state: paused;
-}
 
 /* ---- button shine sweep (not a fade) ---- */
 .btn-shine {

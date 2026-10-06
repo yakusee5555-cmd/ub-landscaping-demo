@@ -92,9 +92,6 @@ export default function Hero() {
             className="hero-fade flex flex-col md:flex-row items-start md:items-end justify-between gap-6"
             style={{ animationDelay: "1.2s" }}
           >
-            <p className="max-w-md text-white/85 text-base md:text-lg leading-relaxed">
-              Landscape design, irrigation &amp; tree care across Queens, NY.
-            </p>
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <a
                 href="#contact"

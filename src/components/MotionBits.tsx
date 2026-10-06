@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-/* ---------- marquee strip: services + towns, pauses on hover ---------- */
+/* ---------- marquee strip: services + towns, always running ---------- */
 export function Marquee({ items }: { items: string[] }) {
   const row = [...items, ...items];
   return (
